@@ -18,8 +18,24 @@ export default ({ comments }) => {
     fetchData();
   }, []);
 */
+
+
+
+
   const renderedComments = comments.map(comment => {
-    return <li key={comment.id}>{comment.content}</li>;
+
+    let validContent
+    if (comment.status==='approved'){
+      validContent= comment.content
+    }
+    if (comment.status==='pending'){
+      validContent = 'Your comment is awaiting moderation. Please hang in there!'
+    }
+    if (comment.status==='rejected'){
+      validContent = 'Your comment can not be displayed cz it violated moderation norms. '
+    }
+
+    return <li key={comment.id}>{validContent}</li>;
   });
 
   return <ul>{renderedComments}</ul>;

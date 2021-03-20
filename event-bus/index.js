@@ -10,16 +10,16 @@ const events = []
 app.post('/events', (req,res)=>{
     const event = req.body
     events.push(event)
-    axios.post('http://localhost:4000/events', event).catch((err)=>{
+    axios.post('http://posts-clusterip-serv:4000/events', event).catch((err)=>{
         console.log(err.message)
     })
-    axios.post('http://localhost:4001/events', event).catch((err)=>{
+    axios.post('http://comments-clusterip-serv:4001/events', event).catch((err)=>{
         console.log(err.message)
     })
-    axios.post('http://localhost:4002/events', event).catch((err)=>{
+    axios.post('http://query-clusterip-serv:4002/events', event).catch((err)=>{
         console.log(err.message)
     })
-    axios.post('http://localhost:4003/events', event).catch((err)=>{
+    axios.post('http://moderation-clusterip-serv:4003/events', event).catch((err)=>{
         console.log(err.message)
     })
     

@@ -40,5 +40,6 @@ app.post('/events',(req, res)=>{
 })
 
 app.listen(PORT,()=>{
+    console.log('This is the laetest from D-hub')
     console.log(`Listening to port ${PORT}`)
 })
